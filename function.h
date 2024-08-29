@@ -4,7 +4,7 @@
 #define LINE
 
 
-    char *get_next_line(FILE *file_name);
+    char *get_next_line(char *str, int *position);
 
 #endif
 

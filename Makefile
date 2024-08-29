@@ -7,7 +7,7 @@ all: clean $(TARGET)
 
 
 $(TARGET): $(SRCS)
-	$(CC) $(CFLAGS) $(SRCS) -o $(TARGET) && ./$(TARGET)
+	$(CC) $(CFLAGS) $(SRCS) -o $(TARGET)
 
 clean:
 	rm -f $(TARGET)

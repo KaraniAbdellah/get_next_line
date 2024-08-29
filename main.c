@@ -6,18 +6,20 @@ int main() {
 
 
     
-    
+    // think for another idea
     
     char *line = NULL;
-    FILE *p_file = fopen("file.txt", "r");
-    line = get_next_line(p_file);
-    printf("line = %s\n", line);
+    int position = 0;
     
+    line = get_next_line("file.txt", &position);
     
+    while (line != NULL) {
+        
+        printf("line = %s\n", line);
+        line = get_next_line("file.txt", &position);
+        
+    }
     
-    
-    
-
     return 0;
 }
 

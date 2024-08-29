@@ -7,11 +7,26 @@
 
 
 
-char *get_next_line(FILE *file_name) {
+char *get_next_line(char *str, int *position) {
     
-    char *line = malloc(sizeof(char) * 32);
+    char *line = (char *) malloc(sizeof(char) * 1000);
+    FILE *p_file = fopen(str, "r");
+    char c; int i = 0;
     
-    strcpy(line, "HELLO FROM HERE");
+    fseek(p_file, *position, SEEK_SET);
+    
+    int check = 0;
+    
+    while ((c = fgetc(p_file)) && c != '\n' && c != EOF) {
+        line[i] = c;
+        i++; check = 1;
+    }
+    line[i] = '\0';
+    *position += i + 1;
+    
+    fclose(p_file);
+    
+    if (!check && c != '\n') return NULL;
     
     return line;
     
