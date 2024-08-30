@@ -3,23 +3,20 @@
 
 
 int main() {
-
-
-    
-    // think for another idea
-    
     char *line = NULL;
     int position = 0;
     
-    line = get_next_line("file.txt", &position);
+    FILE *p_file = fopen("file.txt", "r");
+    
+    line = get_next_line(p_file, &position);
     
     while (line != NULL) {
         
         printf("line = %s\n", line);
-        line = get_next_line("file.txt", &position);
+        line = get_next_line(p_file, &position);
         
     }
-    
+    fclose(p_file);
     return 0;
 }
 
